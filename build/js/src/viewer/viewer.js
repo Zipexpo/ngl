@@ -5,7 +5,7 @@
  */
 import { Signal } from 'signals';
 import { PerspectiveCamera, OrthographicCamera, StereoCamera, Vector2, Box3, Vector3, Matrix4, Color, WebGLRenderer, WebGLRenderTarget, NearestFilter, LinearFilter, AdditiveBlending, RGBAFormat, FloatType, /*HalfFloatType, */ UnsignedByteType, ShaderMaterial, PlaneGeometry, Scene, Mesh, Group, Uniform, Fog, SpotLight, AmbientLight, BufferGeometry, BufferAttribute, LineSegments } from 'three';
-import { WEBVR } from 'three/examples/jsm/vr/WebVR.js';
+import { VRButton } from 'three/examples/jsm/webxr/VRButton.js';
 import '../shader/BasicLine.vert';
 import '../shader/BasicLine.frag';
 import '../shader/Quad.vert';
@@ -242,7 +242,7 @@ export default class Viewer {
                 antialias: true
             });
             this.renderer.vr.enabled = true;
-            document.body.appendChild(WEBVR.createButton(this.renderer));
+            document.body.appendChild(VRButton.createButton(this.renderer));
         }
         catch (e) {
             this.wrapper.innerHTML = WebglErrorMessage;

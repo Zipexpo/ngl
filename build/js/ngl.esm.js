@@ -57255,17 +57255,11 @@ Counter.prototype.dispose = function dispose () {
 /**
  * @author mrdoob / http://mrdoob.com
  * @author Mugen87 / https://github.com/Mugen87
- *
- * Based on @tojiro's vr-samples-utils.js
  */
 
-
-
-var WEBVR = {
+var VRButton = {
 
 	createButton: function ( renderer, options ) {
-
-		console.warn( 'WEBVR.js has been deprecated. Use VRButton.js instead.' );
 
 		if ( options && options.referenceSpaceType ) {
 
@@ -57281,7 +57275,7 @@ var WEBVR = {
 			button.style.left = 'calc(50% - 50px)';
 			button.style.width = '100px';
 
-			button.textContent = 'ENTER VR';
+			button.textContent = 'ENTER_VR';
 
 			button.onmouseenter = function () {
 
@@ -57314,7 +57308,7 @@ var WEBVR = {
 				session.addEventListener( 'end', onSessionEnded );
 
 				renderer.vr.setSession( session );
-				button.textContent = 'EXIT XR';
+				button.textContent = 'EXIT VR';
 
 				currentSession = session;
 
@@ -57325,7 +57319,7 @@ var WEBVR = {
 				currentSession.removeEventListener( 'end', onSessionEnded );
 
 				renderer.vr.setSession( null );
-				button.textContent = 'ENTER XR';
+				button.textContent = 'ENTER VR';
 
 				currentSession = null;
 
@@ -57339,7 +57333,7 @@ var WEBVR = {
 			button.style.left = 'calc(50% - 50px)';
 			button.style.width = '100px';
 
-			button.textContent = 'ENTER XR';
+			button.textContent = 'ENTER VR';
 
 			button.onmouseenter = function () {
 
@@ -57406,7 +57400,7 @@ var WEBVR = {
 
 			disableButton();
 
-			button.textContent = 'XR NOT FOUND';
+			button.textContent = 'VR NOT FOUND';
 
 		}
 
@@ -57471,7 +57465,7 @@ var WEBVR = {
 
 			window.addEventListener( 'vrdisplaypresentchange', function ( event ) {
 
-				button.textContent = event.display.isPresenting ? 'EXIT VR' : 'ENTER VR';
+				button.textContent = event.display.isPresenting ? 'EXIT_VR' : 'ENTER_VR';
 
 			}, false );
 
@@ -57501,8 +57495,8 @@ var WEBVR = {
 		} else {
 
 			var message = document.createElement( 'a' );
-			message.href = 'https://webvr.info';
-			message.innerHTML = 'WEBVR NOT SUPPORTED';
+			message.href = 'https://immersive-web.github.io/webxr/';
+			message.innerHTML = 'WEBXR NOT SUPPORTED';
 
 			message.style.left = 'calc(50% - 90px)';
 			message.style.width = '180px';
@@ -58816,7 +58810,7 @@ Viewer.prototype._initRenderer = function _initRenderer () {
             antialias: true
         });
         this.renderer.vr.enabled = true;
-        document.body.appendChild(WEBVR.createButton(this.renderer));
+        document.body.appendChild(VRButton.createButton(this.renderer));
     }
     catch (e) {
         this.wrapper.innerHTML = WebglErrorMessage;

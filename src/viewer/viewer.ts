@@ -18,7 +18,7 @@ import {
   BufferGeometry, BufferAttribute,
   LineSegments
 } from 'three'
-import {WEBVR} from 'three/examples/jsm/vr/WebVR.js'
+import {VRButton} from 'three/examples/jsm/webxr/VRButton.js'
 import '../shader/BasicLine.vert'
 import '../shader/BasicLine.frag'
 import '../shader/Quad.vert'
@@ -419,7 +419,7 @@ export default class Viewer {
         antialias: true
       })
       this.renderer.vr.enabled = true;
-      document.body.appendChild(WEBVR.createButton(this.renderer));
+      document.body.appendChild(VRButton.createButton(this.renderer));
     } catch (e) {
       this.wrapper.innerHTML = WebglErrorMessage
       return false
