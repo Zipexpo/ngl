@@ -1,7 +1,6 @@
 .gitignore
 *.sublime-workspace
 
-build/
 node_modules/
 declarations/
 .idea/
