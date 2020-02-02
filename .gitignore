@@ -4,7 +4,7 @@
 build/
 node_modules/
 declarations/
-
+.idea/
 npm-debug.log
 
 *.offsets

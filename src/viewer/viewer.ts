@@ -18,7 +18,6 @@ import {
   BufferGeometry, BufferAttribute,
   LineSegments
 } from 'three'
-
 import '../shader/BasicLine.vert'
 import '../shader/BasicLine.frag'
 import '../shader/Quad.vert'
@@ -418,6 +417,7 @@ export default class Viewer {
         alpha: true,
         antialias: true
       })
+      this.renderer.vr.enabled = true;
     } catch (e) {
       this.wrapper.innerHTML = WebglErrorMessage
       return false
